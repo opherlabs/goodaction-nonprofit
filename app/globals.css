@@ -44,3 +44,26 @@ body {
     text-wrap: balance;
   }
 }
+
+.template-dialog {
+  background-color: white;
+}
+
+.template-dialog-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+}
+
+.template-dialog-content {
+  margin-top: 1rem;
+}
+
+.template-dialog-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  cursor: pointer;
+  color: #7f8c8d;
+}
