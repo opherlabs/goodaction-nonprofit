@@ -1,101 +1,145 @@
-import Image from "next/image";
+'use client'
+import React from 'react';
+import { Home, PlusCircle, Settings, HelpCircle, MessageSquare } from 'lucide-react';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
-export default function Home() {
+const sidebarItems = [
+  { icon: Home, label: 'Home', path: '/' },
+  { icon: PlusCircle, label: 'Programs', path: '/programs' },
+  { icon: Settings, label: 'Settings', path: '/settings' },
+  { icon: HelpCircle, label: 'Support', path: '/support' },
+  { icon: MessageSquare, label: 'Feedback', path: '/feedback' },
+];
+
+const mockEngagementData = [
+  { name: 'Jan', value: 400 },
+  { name: 'Feb', value: 300 },
+  { name: 'Mar', value: 200 },
+  { name: 'Apr', value: 278 },
+  { name: 'May', value: 189 },
+];
+
+const HomeDashboard = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+    <div className="flex h-screen bg-gray-100">
+      {/* Sidebar */}
+      <aside className="w-16 bg-white shadow-md">
+        <div className="flex flex-col items-center py-4">
+          <img src="/api/placeholder/40/40" alt="Logo" className="w-10 h-10 mb-8" />
+          <nav className="flex flex-col items-center space-y-4">
+            {sidebarItems.map((item, index) => (
+              <a
+                key={index}
+                href={item.path}
+                className="p-2 rounded-md hover:bg-gray-200 transition-colors duration-200"
+              >
+                <item.icon className="w-6 h-6 text-gray-600" />
+              </a>
+            ))}
+          </nav>
+        </div>
+      </aside>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Main content */}
+      <main className="flex-1 overflow-y-auto">
+        {/* Header */}
+        <header className="bg-white shadow-sm p-4 flex justify-between items-center">
+          <h1 className="text-xl font-semibold">Home</h1>
+          <div className="flex items-center space-x-4">
+            <button className="px-4 py-2 bg-green-500 text-white rounded-md">Add Your Logo</button>
+            <div className="flex items-center space-x-2">
+              <div className="w-8 h-8 bg-gray-300 rounded-full"></div>
+              <span>Gideon Ogongo</span>
+            </div>
+          </div>
+        </header>
+
+        {/* Dashboard content */}
+        <div className="p-6">
+          {/* Summary cards */}
+          <div className="grid grid-cols-4 gap-6 mb-6">
+            <Card>
+              <CardContent className="flex items-center p-4">
+                <div className="bg-red-100 p-3 rounded-full mr-4">
+                  <PlusCircle className="w-6 h-6 text-red-500" />
+                </div>
+                <div>
+                  <div className="text-2xl font-bold">1</div>
+                  <div className="text-sm text-gray-500">Programs</div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="flex items-center p-4">
+                <div className="bg-yellow-100 p-3 rounded-full mr-4">
+                  <PlusCircle className="w-6 h-6 text-yellow-500" />
+                </div>
+                <div>
+                  <div className="text-2xl font-bold">0</div>
+                  <div className="text-sm text-gray-500">Initiatives</div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="flex items-center p-4">
+                <div className="bg-blue-100 p-3 rounded-full mr-4">
+                  <PlusCircle className="w-6 h-6 text-blue-500" />
+                </div>
+                <div>
+                  <div className="text-2xl font-bold">$0.00</div>
+                  <div className="text-sm text-gray-500">Total donations</div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardContent className="flex items-center p-4">
+                <div className="bg-green-100 p-3 rounded-full mr-4">
+                  <PlusCircle className="w-6 h-6 text-green-500" />
+                </div>
+                <div>
+                  <div className="text-2xl font-bold">0 Hrs</div>
+                  <div className="text-sm text-gray-500">Total Volunteer Hours</div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Activities and Engagement Trends */}
+          <div className="grid grid-cols-2 gap-6">
+            <Card>
+              <CardHeader>Activities</CardHeader>
+              <CardContent>
+                <div className="flex flex-col items-center justify-center h-48">
+                  <img src="/api/placeholder/150/150" alt="Activities" className="mb-4" />
+                  <h3 className="text-xl font-semibold">Activities</h3>
+                  <p className="text-gray-600">Access to all your activities on GoodAction.</p>
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>Engagement Trends</CardHeader>
+              <CardContent>
+                <ResponsiveContainer width="100%" height={200}>
+                  <BarChart data={mockEngagementData}>
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Bar dataKey="value" fill="#8884d8" />
+                  </BarChart>
+                </ResponsiveContainer>
+                <div className="text-center mt-4">
+                  <h3 className="text-xl font-semibold">Engagement Trends</h3>
+                  <p className="text-gray-600">Overview of your interactions with GoodAction.</p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
     </div>
   );
-}
+};
+
+export default HomeDashboard;
