@@ -32,14 +32,22 @@ const initiativeTemplates = [
   },
 ];
 
-const CreateInitiativeButton = () => {
+const CreateInitiativeButton = ({ programId }) => {
   const [open, setOpen] = useState(false);
+  const [selectedTemplate, setSelectedTemplate] = useState(null);
 
   const handleSelect = (templateId) => {
-    console.log(`Selected template: ${templateId}`);
-    // Here you would typically navigate to a new page or open another modal
-    // to start creating the initiative based on the selected template
-    setOpen(false);
+    const template = initiativeTemplates.find(t => t.id === templateId);
+    setSelectedTemplate(template);
+  };
+
+  const handleCreate = () => {
+    if (selectedTemplate) {
+      // Here you would create the initiative based on the selected template
+      console.log(`Creating initiative for program ${programId} using template ${selectedTemplate.id}`);
+      // Navigate to the new initiative page or open a new dialog for data entry
+      setOpen(false);
+    }
   };
 
   return (
@@ -53,7 +61,11 @@ const CreateInitiativeButton = () => {
         </DialogHeader>
         <div className="grid grid-cols-2 gap-4 p-4">
           {initiativeTemplates.map((template) => (
-            <Card key={template.id} className="hover:shadow-lg transition-shadow duration-300">
+            <Card 
+              key={template.id} 
+              className={`hover:shadow-lg transition-shadow duration-300 ${selectedTemplate?.id === template.id ? 'border-blue-500 border-2' : ''}`}
+              onClick={() => handleSelect(template.id)}
+            >
               <CardHeader>
                 <CardTitle className="flex items-center">
                   <template.icon className="mr-2 h-5 w-5 text-blue-600" />
@@ -65,12 +77,23 @@ const CreateInitiativeButton = () => {
               </CardContent>
               <CardFooter>
                 <Button onClick={() => handleSelect(template.id)} className="w-full bg-blue-600 hover:bg-blue-700 text-white">
-                  Select
+                  Explore Template
                 </Button>
               </CardFooter>
             </Card>
           ))}
         </div>
+        {selectedTemplate && (
+          <div className="mt-4">
+            <h3 className="text-lg font-semibold mb-2">Template Data Model:</h3>
+            <pre className="bg-gray-100 p-2 rounded">
+              {JSON.stringify(selectedTemplate.dataModel, null, 2)}
+            </pre>
+            <Button onClick={handleCreate} className="mt-4 w-full bg-green-600 hover:bg-green-700 text-white">
+              Create Initiative
+            </Button>
+          </div>
+        )}
       </DialogContent>
     </Dialog>
   );
