@@ -1,0 +1,174 @@
+/* Custom styles for template components */
+
+.template-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .template-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .template-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .template-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .template-card-header {
+    background-color: #f8f9fa;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 1.5rem;
+  }
+  
+  .template-card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #34495e;
+  }
+  
+  .template-card-description {
+    color: #7f8c8d;
+    margin-top: 0.5rem;
+  }
+  
+  .template-card-content {
+    padding: 1.5rem;
+  }
+  
+  .template-button {
+    background-color: #3498db;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  .template-button:hover {
+    background-color: #2980b9;
+  }
+  
+  .template-input {
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    padding: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .template-input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+  }
+  
+  .template-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+  
+  .template-table th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 1rem;
+    border-bottom: 2px solid #e9ecef;
+  }
+  
+  .template-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .template-table tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .template-table tr:hover {
+    background-color: #f8f9fa;
+  }
+  
+  .template-icon {
+    color: #7f8c8d;
+  }
+  
+  .template-tabs {
+    margin-bottom: 1.5rem;
+  }
+  
+  .template-tab {
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px 4px 0 0;
+    transition: all 0.3s ease;
+  }
+  
+  .template-tab[data-state="active"] {
+    background-color: #3498db;
+    color: #ffffff;
+  }
+  
+  .template-tab:hover:not([data-state="active"]) {
+    background-color: #f8f9fa;
+  }
+  
+  /* Add these new styles */
+  .template-tabs {
+    margin-bottom: 2rem;
+  }
+  
+  .template-tab {
+    transition: all 0.3s ease;
+  }
+  
+  .template-tab[data-state="active"] {
+    background-color: #3498db;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .template-button {
+    transition: all 0.3s ease;
+  }
+  
+  .template-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .template-input:focus {
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.5);
+  }
+  
+  .template-table th {
+    transition: all 0.3s ease;
+  }
+  
+  .template-table th:hover {
+    background-color: #f1f5f9;
+  }
+  
+  .template-table tr {
+    transition: all 0.3s ease;
+  }
+  
+  .template-table tr:hover {
+    background-color: #f1f5f9;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  
