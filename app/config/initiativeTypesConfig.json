@@ -1,0 +1,42 @@
+
+{
+  "fundraising": {
+    "title": "Fundraising Initiative",
+    "fields": [
+      { "name": "title", "type": "text", "label": "Title", "required": true },
+      { "name": "goalAmount", "type": "number", "label": "Goal Amount", "required": true },
+      { "name": "startDate", "type": "date", "label": "Start Date", "required": true },
+      { "name": "endDate", "type": "date", "label": "End Date", "required": true },
+      { "name": "description", "type": "textarea", "label": "Description", "required": false }
+    ]
+  },
+  "volunteer": {
+    "title": "Volunteer Initiative",
+    "fields": [
+      { "name": "title", "type": "text", "label": "Title", "required": true },
+      { "name": "numberOfVolunteers", "type": "number", "label": "Number of Volunteers", "required": true },
+      { "name": "location", "type": "text", "label": "Location", "required": true },
+      { "name": "startDate", "type": "date", "label": "Start Date", "required": true },
+      { "name": "endDate", "type": "date", "label": "End Date", "required": false }
+    ]
+  },
+  "education": {
+    "title": "Education Initiative",
+    "fields": [
+      { "name": "courseName", "type": "text", "label": "Course Name", "required": true },
+      { "name": "instructor", "type": "text", "label": "Instructor", "required": true },
+      { "name": "startDate", "type": "date", "label": "Start Date", "required": true },
+      { "name": "endDate", "type": "date", "label": "End Date", "required": true },
+      { "name": "description", "type": "textarea", "label": "Description", "required": false }
+    ]
+  },
+  "impact": {
+    "title": "Impact Initiative",
+    "fields": [
+      { "name": "projectName", "type": "text", "label": "Project Name", "required": true },
+      { "name": "impactArea", "type": "text", "label": "Impact Area", "required": true },
+      { "name": "targetBeneficiaries", "type": "number", "label": "Target Beneficiaries", "required": true },
+      { "name": "description", "type": "textarea", "label": "Description", "required": false }
+    ]
+  }
+}

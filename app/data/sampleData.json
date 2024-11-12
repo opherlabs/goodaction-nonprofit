@@ -1,0 +1,24 @@
+
+{
+    "fundraising": {
+      "modelOne": [
+        { "title": "Annual Fundraiser", "goalAmount": 10000, "startDate": "2024-11-01", "endDate": "2024-12-01" },
+        { "title": "Holiday Drive", "goalAmount": 5000, "startDate": "2024-12-15", "endDate": "2024-12-30" }
+      ],
+      "modelTwo": [
+        { "donorName": "John Doe", "donationAmount": 200, "date": "2024-11-05" },
+        { "donorName": "Jane Smith", "donationAmount": 500, "date": "2024-11-10" }
+      ]
+    },
+    "volunteer": {
+      "modelOne": [
+        { "title": "Park Cleanup", "numberOfVolunteers": 15, "location": "Central Park", "startDate": "2024-11-01" },
+        { "title": "Food Drive", "numberOfVolunteers": 20, "location": "Community Center", "startDate": "2024-11-10" }
+      ],
+      "modelTwo": [
+        { "volunteerName": "John Doe", "hoursLogged": 4, "date": "2024-11-05" },
+        { "volunteerName": "Jane Smith", "hoursLogged": 3, "date": "2024-11-06" }
+      ]
+    }
+  }
+  
